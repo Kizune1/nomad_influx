@@ -1,6 +1,6 @@
 job "influxdb" {
 	type = "service"
-  
+	datacenters = ["dc1"]
 	group "influxdb" {
 	  count = 1
 	  network {
