@@ -4,7 +4,7 @@ job "install-influxdb" {
 		driver = "exec"
 		
 		artifact {
-			source = "wget https://dl.influxdata.com/influxdb/releases/influxdb2-2.7.0-amd64.deb"
+			source = "https://dl.influxdata.com/influxdb/releases/influxdb2-2.7.0-amd64.deb"
 			destination = "local/home/odmin/influxdb2-2.7.0-amd64.deb"
 		}
 	}
