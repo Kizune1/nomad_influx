@@ -7,15 +7,7 @@ job "install-influxdb" {
 			source = "wget https://dl.influxdata.com/influxdb/releases/influxdb2-2.7.0-amd64.deb"
 			destination = "local/home/odmin/influxdb2-2.7.0-amd64.deb"
 		}
-	task "install-influxdb"{
-		driver = "exec"
-		
-		config {
-			command = "sudo dpkg"
-			args = ["-i influxdb2-2.7.0-amd64.deb"]
-		}
-		}
 	}
-	}
+}
 	
 
