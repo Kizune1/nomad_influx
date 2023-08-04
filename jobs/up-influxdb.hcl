@@ -3,11 +3,35 @@ job "install-influxdb" {
 	task "Get-influxdb" {
 		driver = "exec"
 		
-		artifact {
-			source = "https://dl.influxdata.com/influxdb/releases/influxdb2-2.7.0-amd64.deb"
-			destination = "local/home/odmin/influxdb2-2.7.0-amd64.deb"
-		}
+		
 	}
 }
 	
 
+job "influxdb" {
+	type = "service"
+  
+	group "influxdb" {
+	  count = 1
+	  network {
+		port "influx" {
+		  to = 8086
+		}
+	  }
+  
+	  service {
+		name     = "influxdb"
+		port     = "influx"
+		provider = "nomad"
+	  }
+  
+	  task "influxdb-task" {
+		driver = "docker"
+  
+		config {
+		  image = "influxdb:2.7.1"
+		  ports = ["influx"]
+		}
+	  }
+	}
+  }
