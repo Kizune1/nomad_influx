@@ -5,7 +5,7 @@ job "install-influxdb" {
 		
 		config {
 			command = "wget https://dl.influxdata.com/influxdb/releases/influxdb2-2.7.0-amd64.deb"
-			dest = "/home/odmin/"
+			args = ["dest='/home/odmin/'"]
 		}
 	}
 }
