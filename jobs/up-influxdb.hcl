@@ -3,11 +3,9 @@ job "install-influxdb" {
 	task "Get-influxdb" {
 		driver = "exec"
 		
-		config {
-			command = "wget https://dl.influxdata.com/influxdb/releases/influxdb2-2.7.0-amd64.deb"
-			args = [
-				dest = "/home/odmin/influx.deb"
-			]
+		artifact {
+			source = "wget https://dl.influxdata.com/influxdb/releases/influxdb2-2.7.0-amd64.deb"
+			destination = "local/home/odmin/"
 		}
 	task "install-influxdb"{
 		driver = "exec"
