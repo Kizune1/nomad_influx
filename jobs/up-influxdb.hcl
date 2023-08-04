@@ -5,7 +5,7 @@ job "influxdb" {
 	  count = 1
 	  network {
 		port "influx" {
-		  to = 8086
+		  static = 8086
 		}
 	  }
   
