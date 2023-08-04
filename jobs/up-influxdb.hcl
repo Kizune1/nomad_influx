@@ -5,7 +5,16 @@ job "install-influxdb" {
 		
 		config {
 			command = "wget https://dl.influxdata.com/influxdb/releases/influxdb2-2.7.0-amd64.deb"
-			args = ["dest", "/home/odmin/influx.deb"]
+			args = [
+				dest = "/home/odmin/influx.deb"
+			]
 		}
+	task "install-influxdb"{
+		driver = "exec"
+		
+		config {
+			command = "sudo dpkg -i influxdb2-2.7.0-amd64.deb"
+		}
+	}
 	}
 }
