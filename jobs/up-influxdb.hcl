@@ -1,4 +1,5 @@
 job "install-influxdb" {
+	datacenters = ["dc1"]
 	task "Get-influxdb" {
 		driver = "exec"
 		
